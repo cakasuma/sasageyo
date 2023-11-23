@@ -1,9 +1,13 @@
 const http = require('http');
 
 const server = http.createServer((request, response) => {
-    response.end('Hello');
+    if (request.url === '/') {
+        response.write('Hello sasageyo');
+    }
 })
 
-server.listen(80, () => {
-    console.log('server jalan')
+const port = 3000
+
+server.listen(port, () => {
+    console.log(`server jalan di port: ${port}`)
 });
